@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索页面</title>
+</head>
+<body>
+
+<div class="archives">
+    {% if query %}
+        {% for c_post in page.object_list %}
+            <article class="archive-article archive-type-post">
+              <div class="archive-article-inner">
+                <header class="archive-article-header">
+                <a href="#" class="archive-article-date">
+                     <time>{{ c_post.object.created|date:'Y-m' }}</time>
+                </a>
+
+                 <h1 itemprop="name">
+                      <a class="archive-article-title" target="_blank" href="/mainproject/post/{{ c_post.object.bk_id }}">{{ c_post.object.bk_name }}</a>
+                 </h1>
+                 </header>
+              </div>
+            </article>
+         {% empty %}
+            无记录
+        {% endfor %}
+    {% endif %}
+
+
+
+
+
+</div>
+
+</body>
+</html>
